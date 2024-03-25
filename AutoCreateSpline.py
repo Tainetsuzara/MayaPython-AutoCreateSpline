@@ -2,13 +2,21 @@
 # -*- coding: utf_8 -*-
 #________________________________________________________
 # create by hisakazu aoki
+#________________________________________________________
+
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+---warning---
+   The front axis of the joint chain is assumed to be in the x direction.
+      Joints that are not created in this orientation may cause unexpected problems!
+'''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''''
+
 #------ how to use ------
 #   select 2 joint to joint chane start end 
 #   create spline ik rig
-
 #------ about stratch ------
-#   created route rig has attributes related to stretching
+#   created roots rig has attributes related to stretching
 #________________________________________________________
+
 
 from maya.api.OpenMaya import MVector, MMatrix, MPoint
 import maya.cmds as mc
