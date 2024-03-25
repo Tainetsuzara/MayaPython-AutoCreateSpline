@@ -115,8 +115,8 @@ class CreateAutoSplineClass():
 			mc.delete(DeleteJoints)
 		#print ('TrgJoint : 下記のジョイントをスプラインik用に複製しました')
 		#print (TrgJoint)
-		
-		
+
+
 		#groval groupを作成します
 		num = len(mc.ls('AutoSplineRigGrobal_*')) + 1
 		GrobalGrp = mc.group(em=True, n=('AutoSplineRigGrobal_' + str(num) + '_Grp'))
@@ -368,6 +368,16 @@ class CreateAutoSplineClass():
 			mc.setAttr(i + ".sz", keyable=False, channelBox=False)
 			mc.setAttr(i + ".v",  keyable=False, channelBox=False)
 			
+		#末端のリグはツイストとロールのコントロールを行えるのでチャンネルを解放します
+		mc.setAttr(IK_Rig_List[0] + ".rx", lock=False)
+		mc.setAttr(IK_Rig_List[0] + ".rz", lock=False)
+		mc.setAttr(IK_Rig_List[-1] + ".rx", lock=False)
+		mc.setAttr(IK_Rig_List[-1] + ".rz", lock=False)
+		mc.setAttr(IK_Rig_List[0] + ".rx", keyable=True, channelBox=True)
+		mc.setAttr(IK_Rig_List[0] + ".rz", keyable=True, channelBox=True)
+		mc.setAttr(IK_Rig_List[-1] + ".rx", keyable=True, channelBox=True)
+		mc.setAttr(IK_Rig_List[-1] + ".rz", keyable=True, channelBox=True)		
+		
 		#オリジナルジョイントをロックします
 		for i in OrgJoint:
 			mc.setAttr(i + ".tx", lock=True)
